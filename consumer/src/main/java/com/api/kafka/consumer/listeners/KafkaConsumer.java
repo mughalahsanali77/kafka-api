@@ -1,10 +1,10 @@
 package com.api.kafka.consumer.listeners;
 
 import com.api.kafka.consumer.common.Constants;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Component;
 
-@Configuration
+@Component
 public class KafkaConsumer {
 
     @KafkaListener(topics = Constants.TOPIC,groupId = Constants.GROUP_ID)
