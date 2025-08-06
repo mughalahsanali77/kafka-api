@@ -1,0 +1,19 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: streams-consumer
+
+  cloud:
+    function:
+      definition: processRiderLocation
+
+    stream:
+      bindings:
+        processRiderLocation-in-0:
+          destination: digital-ride-payment-event
+
+      kafka:
+        binder:
+          brokers: localhost:9092
