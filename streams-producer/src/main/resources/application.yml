@@ -1,0 +1,22 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: streams-producer
+
+  cloud:
+    function:
+      definition: sendRiderLocation
+
+    stream:
+      bindings:
+        sendRiderLocation-out-0:
+          destination: digital-ride-payment-event
+          content-type: application/json
+      poller:
+        fixed-delay: 5000
+
+      kafka:
+        binder:
+          brokers: localhost:9092
